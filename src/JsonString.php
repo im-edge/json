@@ -14,6 +14,8 @@ class JsonString
 
     /**
      * Encode with well-known flags, as we require the result to be reproducible
+     *
+     * @param mixed $mixed
      * @throws JsonException
      */
     public static function encode($mixed, ?int $flags = null): string
@@ -32,6 +34,9 @@ class JsonString
         return json_decode($string, null, 512, JSON_THROW_ON_ERROR);
     }
 
+    /**
+     * @return mixed
+     */
     public static function decodeOptional(?string $string)
     {
         if ($string === null) {
